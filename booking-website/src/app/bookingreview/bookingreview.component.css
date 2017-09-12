@@ -1,0 +1,60 @@
+.house-detail-top-row {
+    height: 300px;
+    background: url('../../assets/img/detail-top-1.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.house-dtl-inner {
+    width: 100%;
+    height: 300px;
+    background: rgba(14, 118, 188, 0.8);
+    color: #fff;
+    text-align: left;
+    padding-top: 33px;
+}
+
+.checkin-time::before {
+    content: '';
+    border-right: 2px solid #fff;
+    padding-right: 50px;
+}
+
+.checkin-time-ltr::after {
+    content: '';
+    border-right: 2px solid #fff;
+    padding-right: 50px;
+}
+
+.house-dtl-inner {
+    padding-top: 30px;
+}
+
+.image-caption {
+    text-align: center;
+}
+
+.row-services,
+.row-description,
+.house-dtl-inner,
+.row-slider {
+    padding: 0px 50px;
+}
+
+.booking-review {
+    background-color: #FDF5EF;
+}
+
+.price-review {
+    border: 1px solid #000;
+    width: 100%;
+    margin: 50px 10px;
+}
+
+.price-review-header {
+    height: 50px;
+    padding: 10px;
+}
+
+.tabs {
+    margin-bottom: 50px;
+}

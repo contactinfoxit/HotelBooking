@@ -1,0 +1,31 @@
+<div class="modal-dialog" style="z-index:99 !important" dir="rtl">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" (click)="close()">&times;</button><br/>
+            <h3 class="modal-title">{{'select' | translate}} {{ 'booking' | translate }} {{ 'date' |translate}}</h3>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="calculateRequestedDate(bf)" #bf="ngForm">
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="picker" placeholder="{{ 'check-in' | translate}} {{'date' | translate }}" name="checkin" ngModel>
+                    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                </md-input-container>
+                <md-datepicker #picker></md-datepicker>
+
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="picker2" placeholder="{{ 'check-out' | translate}} {{'date' | translate }}" name="checkout" ngModel>
+                    <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+                </md-input-container>
+                <md-datepicker #picker2></md-datepicker>
+                <button type="submit" [disabled]="bf.value.checkin >= bf.value.checkout " class="btn btn-lg btn-primary">{{'calculate' | translate}}</button>
+            </form>
+
+            <p *ngIf="bookingNights > 0 && bookingNights < 90 && displayErrorMsg==false">{{'you' | translate }} {{'request'| translate}} {{ 'booking' | translate }} {{ 'for'| translate}} {{ bookingNights }} {{ 'night' | translate}}</p>
+            <p *ngIf="displayErrorMsg==true" style="color:red">{{'invalid' | translate}} {{ 'date' | translate }}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" [disabled]="errorStatus==true" (click)="continueToBooking(bookingNights)">{{'continue' | translate}}</button>
+            <button type="button" class="btn btn-default" (click)="close()">{{'cancel' | translate}}</button>
+        </div>
+    </div>
+</div>

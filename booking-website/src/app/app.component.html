@@ -1,0 +1,105 @@
+<div dir="{{ dir }}">
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="container-fluid">
+            <div class="row header-row">
+                <div class="col-lg-1" [ngClass]="dir=='rtl'? 'pull-right' : 'pull-left'">
+                    <button type="button" class="btn toggle-menu-button" (click)="sidenav.toggle()">
+<span class="glyphicon glyphicon-th-list toggle-menu-icon"></span>
+      </button>
+                    <div [ngClass]="dir=='rtl'? 'logo-right' : 'logo-left'">
+                        <img src="assets/img/logo.png" class="img img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-6 nav-bar-icon-hidden" [ngClass]="dir=='rtl'? 'pull-left' : 'col-md-offset-0 col-lg-offset-2  pull-left'">
+                    <span class="pull-left top-nav-icon"><a href="https://itunes.apple.com/au/app/%D9%88%D9%8A%D9%83%D9%86%D8%AF-kw/id1249814392?mt=8" target="blank"><img src="assets/img/icon-appstore1.png" class="img img-responsive appstore"></a></span>
+                    <span class="pull-left top-nav-icon"><img src="assets/img/icon-playstore.png" class="img img-responsive playstore" ></span>
+                    <span class="social-icon" [ngClass]="dir=='rtl'? 's-icon-far' : 's-icon-f'"><i class="fa fa-youtube-square" aria-hidden="true"></i></span>
+                    <span class="social-icon s-icon-s"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+                    <span class="social-icon"><i class="fa fa-twitter-square" aria-hidden="true"></i></span>
+                </div>
+                <div class="col-lg-3 top-contact" [ngClass]="dir=='rtl'? 'pull-left' : 'pull-right'">
+                    <div class="nav-phone-icon pull-left nav-bar-icon-hidden">
+                        <span class="social-icon"><i class="fa fa-mobile-phone"></i></span>
+                    </div>
+                    <div class="nav-phone-number pull-right">
+                        <div style="width:100%; border-bottom:1px solid #fff;">
+                            <span class="nav-contact-left">{{ 'management' | translate}}</span><span style="color:#fff;">12345</span>
+
+                        </div>
+
+
+                        <div style="width:100%">
+                            <span class="nav-contact-left">{{ 'rental' | translate}}</span><span style="color:#fff;float: right;">12345</span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <md-sidenav-container class="sidebar-nav-container">
+        <md-sidenav #sidenav class="sidebar-nav">
+            <div class="sidebar-top-bar">
+                <a class="language-switcher" *ngIf="dir == 'rtl'" (click)="changeLang('en', 'ltr', sidenav)">En</a>
+                <a class="language-switcher" *ngIf="dir == 'ltr'" (click)="changeLang('ar', 'rtl', sidenav)">عربى</a>
+            </div>
+
+            <div class="list-group">
+                <a routerLink="/" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span class="glyphicon glyphicon-home"></span> &nbsp; &nbsp; {{"home" | translate}}</a>
+                <a routerLink="/" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span><i class="fa fa-building" aria-hidden="true"></i></span> &nbsp; &nbsp; {{"house-for-rent" | translate}}</a>
+                <a routerLink="/" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span><i class="fa fa-building-o" aria-hidden="true"></i></span> &nbsp; &nbsp; {{"house-for-sale" | translate}}</a>
+                <a routerLink="/login" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span><i class="fa fa-info" aria-hidden="true"></i></span> &nbsp; &nbsp;{{"about-us" | translate}}</a>
+                <a routerLink="/login" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span><i class="fa fa-comment" aria-hidden="true"></i></span> &nbsp; &nbsp;{{"contact" | translate}}</a>
+                <a routerLink="/login" (click)="sidenav.toggle()" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}"><span class="glyphicon glyphicon-user"></span> &nbsp; &nbsp;{{"login" | translate}}</a>
+
+            </div>
+
+        </md-sidenav>
+        <div class="container-area">
+            <router-outlet></router-outlet>
+        </div>
+        <!--<app-home></app-home>-->
+        <!--<app-detailpage></app-detailpage>-->
+        <div class="container-fluid footer-container">
+            <div class="row footer">
+                <div class="row-overlay">
+                    <div class="col-lg-3">
+                        <h4>ABOUT US</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4>CONTACT US</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4>QUICK LINKS</h4>
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                            <li><a href="#">Link 5</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <img class="img img-responsive" src="assets/img/logo-for-background.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-sidenav-container>
+
+    <div class="container-fluid footer-container">
+        <div class="row copy-right">
+            <div class="col-lg-12">
+                <p style="text-align:center;color:#fff; font-size:11pt;padding-top: 12px;"> &copy; 2017 All rights Reserved </p>
+            </div>
+        </div>
+    </div>
+</div>

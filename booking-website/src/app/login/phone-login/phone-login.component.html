@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6 loginbox">
+            <md-card class="card-srch">
+                <md-card-title>
+
+                    <span class="glyphicon glyphicon-phone"></span><span>Phone Login</span>
+
+                </md-card-title>
+                <!--<div ng-model="message" ng-show="showMessage" class="message fadein fadeout">{{errorMessage}}</div>-->
+                <!--<div ng-model="errorMessage" *ngIf="showMessage" class="alert alert-danger" [ngClass]="showMessage ? 'fadein' : 'fadeout'" role="alert">{{errorMessage}}</div>-->
+                <md-card-content>
+
+                    <form class="form-horizontal" (ngSubmit)="phoneLoginProcess(plf)" #plf="ngForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Phone</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-btn input-group-sm ">
+    <select name="countryCode"  class="btn btn-default custom-input" required ngModel>
+<option *ngFor="let c of countries" value="{{c.callingCode}}" > {{ c.name.common}}</option>
+
+
+                                    </select>
+                                    </span>
+                                    <input type="number" name="number" class="form-control" required ngModel>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="recaptcha-container"></div>
+                        <!--<div class="g-recaptcha"  data-sitekey="6LeuRTAUAAAAABrV8uKQVTadFBltok0Jistsu5Rk"></div>-->
+                        <!--<recaptcha (resolved)="resolved($event)" siteKey="6LeuRTAUAAAAABrV8uKQVTadFBltok0Jistsu5Rk" id="recaptcha-container"></recaptcha>-->
+                        <button [disabled]="!plf.valid" class="btn btn-primary btn-md" type="submit">Get Confirmation Code</button>
+                    </form>
+                    <hr/>
+                    <form *ngIf="verificationId" class="form-inline" (ngSubmit)="verifyLoginCode(ccf)" #ccf="ngForm">
+                        <div class="form-group">
+                            <label for="confirmation">Enter Your Verification Code Here</label>
+                            <input type="text" class="form-control" id="confirmationcode" name="confirmationcode" ngModel required>
+                        </div>
+
+                        <button [disabled]="!ccf.valid" type="submit" class="btn btn-primary">Verify</button>
+                        <p *ngIf="errorResponse" style="color:red;">{{ errorResponse }}</p>
+                    </form>
+
+
+                </md-card-content>
+            </md-card>
+        </div>
+
+    </div>
+
+
+</div>

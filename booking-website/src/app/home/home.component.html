@@ -1,0 +1,110 @@
+<div class="container-fluid">
+
+    <div class="row" style="margin-bottom:10px;">
+
+        <agm-map [latitude]="28.650597" [longitude]="48.286634" [zoom]="13" [mapTypeId]="'hybrid'">
+            <agm-marker *ngFor="let house of filtered; let i=index " [latitude]="house.Latitude" [longitude]="house.Longitude">
+            </agm-marker>
+
+        </agm-map>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 srchbox">
+            <md-card class="card-srch">
+                <md-card-title>
+
+                    <span class="glyphicon glyphicon-search"></span><span>{{"search-for-hotel" | translate}}</span>
+
+
+                </md-card-title>
+                <md-card-content>
+                    <form class=" srch-form" (ngSubmit)="onSearch(sf)" #sf="ngForm">
+                        <div class="col-xs-12"> <label> {{"location" | translate}}</label></div>
+                        <div class="col-xs-12" style="margin-bottom:3px;"> <input type="text" class="form-control" name="place" ngModel></div>
+                        <div class="clearfix"></div>
+                        <div class="col-xs-12" class="input-label">
+
+                            <md-checkbox ng-model="data.cb1" md-no-ink aria-label="{{'swimming-pool'| translate}}" name="swimmingpool" class="md-primary" ngModel>
+                                {{"swimming-pool" | translate}}
+                            </md-checkbox>
+                        </div>
+                        <div class="col-xs-6"><label>{{"to-rent" | translate}}</label></div>
+                        <div class="col-xs-6">
+                            <select name="torent" style="width:100%;" [(ngModel)]="toRentSelected">
+                         <option value="all" [selected]>{{"all" | translate}}</option>
+                         <option value="family">{{"family" | translate}}</option>
+                          <option value="single">{{"guys" | translate}}</option>
+                           <option value="mix">{{"mix" | translate}}</option>
+                               </select>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-xs-6"><label> {{"which-line" | translate}}</label></div>
+                        <div class="col-xs-6">
+                            <select name="whichline" style="width:100%;" [(ngModel)]="whichlineSelected">
+                             <option value="all" [selected]> {{"all" | translate}} </option>
+                         <option value="onSea">{{"onSea" | translate}} </option>
+                         <option value="firstLine">{{"first-line" | translate}}</option>
+                          <option value="secondLine">{{"second-line" | translate}}</option>
+                           <option value="thirdLine">{{"third-line" | translate}}</option>
+                       </select>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-xs-6"><label>{{"house-type" | translate}}</label></div>
+                        <div class="col-xs-6">
+                            <select name="housetype" style="width:100%;" [(ngModel)]="housetypeSelected">
+                          <option value="all" [selected]>{{"all" | translate}} </option>
+                         <option value="apartment">{{"apartment" | translate}} </option>
+                         <option value="privateHouse">{{"privateHouse" | translate}}</option>
+                          <option value="blocks">{{"blocks" | translate}}</option>
+                       </select>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <button type="submit " class="btn btn-lg btn-danger btn-srch pull-right ">{{"search" | translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+
+
+
+
+    <div class="clearfix "></div>
+    <div class="row ">
+        <div class="col-lg-12" *ngIf="filtered.length==0">
+            <div class="no-result-found">
+                <h4 class="no-result-found"> No Result Found</h4>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 " *ngFor="let house of filtered; let i=index ">
+            <div (click)="goToHouseDetail(house.houseId)" class="thumbnail " *ngIf="filtered.length>0">
+                <img src="{{house.photosGalaryURLs[0]}} " class="img img-responsive house-thumbnail ">
+                <div class="caption ">
+                    <div class="left">
+                        <p>{{ house.price }} <span>سعر ليلة واحدة</span></p>
+                    </div>
+                    <div class="right">
+                        <h3>{{ house.houseName }}</h3>
+                        <p>{{ house.location }}</p>
+                        <span class="counter"><img src="assets/img/icon-bedroom.png " width="25 ">{{ house.rooms }}</span>
+                        <span class="counter"><img src="assets/img/icon-toilet.png " width="25 ">{{ house.toilets }}</span>
+                        <span class="counter"><img *ngIf="house.privateSwimmingPool=='true' " src="assets/img/icon-privatSwimmingPool.png " width="25 "></span>
+                    </div>
+                </div>
+                <!--<div class="product-footer ">-->
+                <!--<p><a href="# " class="btn btn-primary button-lg pull-left btn-quick-book " role="button ">كتاب سريع</a>-->
+                <a (click)="goToHouseDetail(house.houseId)" class="btn btn-default btn-lg btn-block btn-detail pull-right " role="button ">{{"detail" | translate}}</a>
+                <!--</div>-->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,54 @@
+.loginbox {
+    margin-top: 90px;
+}
+
+.btn-twitter,
+.btn-twitter:active,
+.btn-twitter:hover {
+    background: #1dcaff;
+    border: 0px;
+}
+
+.icon-social {
+    font-size: 24px;
+}
+
+.or {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-instagram {
+    background-color: #8a3ab9;
+    border-color: #8a3ab9;
+}
+
+input.ng-invalid.ng-touched {
+    border-left: 8px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border-left: 8px solid green;
+}
+
+.fadein,
+.fadeout {
+    -webkit-transition: 800ms ease-in-out all;
+    -moz-transition: 800ms ease-in-out all;
+    -o-transition: 800ms ease-in-out all;
+    transition: 800ms ease-in-out all;
+    display: block !important;
+}
+
+.fadeout {
+    opacity: 0;
+}
+
+.fadein {
+    opacity: 1;
+}
+
+.container {
+    margin-bottom: 50px;
+}

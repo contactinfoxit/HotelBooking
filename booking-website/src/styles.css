@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+.agm-map-container-inner {
+    width: inherit;
+    height: 600px;
+}
+
+.mbsc-bootstrap.mbsc-calendar .mbsc-cal-hdn {
+    display: none;
+    visibility: hidden;
+}
+
+.mbsc-bootstrap.mbsc-calendar .mbsc-cal-hdn>div {
+    font-size: 0px;
+    display: none;
+}
+
+.mbsc-cal-day-fg>div {
+    font-size: 0px;
+    display: none;
+}
+
+body {
+    font-size: 18pt;
+}
+
+.cdk-overlay-container {
+    position: fixed;
+    z-index: 1050 !important;
+}
+
+.mat-checkbox-inner-container {
+    background: #fff !important;
+}
+
+.mat-checkbox-frame {
+    border-color: #fff;
+}
+
+.mat-checkbox-frame:checked {
+    background: blueviolet;
+}

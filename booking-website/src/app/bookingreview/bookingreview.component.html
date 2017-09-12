@@ -1,0 +1,149 @@
+<div class="container-fluid">
+    <div class="row house-detail-top-row">
+        <div class="house-dtl-inner">
+            <div class=" col-sm-8">
+                <h1 class="house-name">{{ houseDetail['houseName'] }}</h1>
+                <h3 class="house-location"> {{ houseDetail['location'] }}</h3>
+                <div style="width:100%">
+                    <h4 class="pull-left" [ngClass]="dir=='rtl' ? 'checkin-time' : 'checkin-time-ltr'">{{ "check-out-time" | translate }}</h4>
+                    <h4 class="pull-right">{{ "check-in-time" | translate }}</h4>
+                </div>
+                <div class="clearfix"></div>
+                <h4> {{ "price-of-one-night" | translate }} {{ houseDetail['price'] }}{{ "currency" | translate }} </h4>
+            </div>
+            <div class="col-md-4">
+                <div class="pull-left">
+                    <img class="top-dtl-img" src="assets/img/icon-{{ houseDetail['typeOfPeopleAllowedToRent'] }}.png" />
+                    <p class="image-caption">{{houseDetail['typeOfPeopleAllowedToRent'] | translate}}</p>
+                </div>
+                <div class="pull-left">
+                    <img class="top-dtl-img" src="assets/img/icon-{{ houseDetail['houseType'] }}.png" />
+                    <p class="image-caption">{{ houseDetail['houseType'] | translate }}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="page-header">
+        <h1>Your Booking Review</h1>
+    </div>
+
+    <div class="row booking-review">
+        <div class="col-md-5">
+            <div class="price-review">
+                <h1 class="price-review-header">{{ "price" | translate }} {{ "detail" | translate }}</h1>
+                <hr/>
+
+                <table class="table table-striped">
+                    <tr>
+                        <td>{{ "total" | translate }} {{ "booking" | translate }} {{ "night" | translate }}</td>
+                        <td>{{ bookingNights }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ "check-in" | translate }} {{ "date" | translate }}<br/> {{checkInDate}}</td>
+                        <td>{{ "check-out" | translate }} {{ "date" | translate }}<br/> {{checkOutDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ houseDetail['price'] }} {{ "currency" | translate }} X {{ bookingNights }} {{ "night" | translate }}</td>
+                        <td>{{ houseDetail['totalprice'] }} {{ "currency" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ "deposit" | translate }}</td>
+                        <td>100 {{ "currency" | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">We will Refund Deposit Amount after Checkout</td>
+                    </tr>
+                    <tr>
+                        <td>{{ "total" | translate }} {{ "price" | translate }}</td>
+                        <td>{{ houseDetail['grandTotal'] }} {{ "currency" | translate }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <form>
+                <md-input-container class="example-full-width">
+                    <input type="text" mdInput placeholder="Customer Name">
+                </md-input-container>
+                <md-input-container class="example-full-width">
+                    <input type="email" mdInput placeholder="Customer Email">
+                </md-input-container>
+                <md-input-container class="example-full-width">
+                    <input type="number" mdInput placeholder="ID Number">
+                </md-input-container>
+                <fieldset>
+                    <legend>Address</legend>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Avanue">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Block">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Floors">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="House Number">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Street">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Surburb">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="text" mdInput placeholder="Unit Number">
+                    </md-input-container>
+                </fieldset>
+                <fieldset>
+                    <legend>Contact</legend>
+                    <md-input-container class="example-full-width">
+                        <input type="number" mdInput placeholder="Contact 1">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="number" mdInput placeholder="Contact 2">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="number" mdInput placeholder="Contact 3">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="number" mdInput placeholder="Contact 4">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input type="number" mdInput placeholder="Contact 5">
+                    </md-input-container>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+    <div class="row booking-review">
+        <div class="col-lg-12 tabs">
+
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#toc" aria-controls="toc" role="tab" data-toggle="tab">Terms and conditions</a></li>
+                <li role="presentation"><a href="#safty" aria-controls="profile" role="tab" data-toggle="tab">Safty Instructions</a></li>
+                <li role="presentation"><a href="#availability" aria-controls="messages" role="tab" data-toggle="tab">Booking Avilability</a></li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="home">Comming Soon....</div>
+                <div role="tabpanel" class="tab-pane fade" id="safty">Comming Soon</div>
+                <div role="tabpanel" class="tab-pane fade" id="availability">
+                    comming Soon
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>

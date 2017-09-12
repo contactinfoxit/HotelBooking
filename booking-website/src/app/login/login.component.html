@@ -1,0 +1,67 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6 loginbox">
+            <md-card class="card-srch">
+                <md-card-title>
+
+                    <!--<span class="glyphicon glyphicon-search"></span><span>{{"search-for-hotel" | translate}}</span>-->
+                    <span class="glyphicon glyphicon-search"></span><span>login</span>
+
+                </md-card-title>
+                <!--<div ng-model="message" ng-show="showMessage" class="message fadein fadeout">{{errorMessage}}</div>-->
+                <div ng-model="errorMessage" *ngIf="showMessage" class="alert alert-danger" [ngClass]="showMessage ? 'fadein' : 'fadeout'" role="alert">{{errorMessage}}</div>
+                <md-card-content>
+                    <form (ngSubmit)="loginWithEmail(lf)" #lf="ngForm">
+                        <div class="form-group">
+                            <label for="email">Mail</label>
+                            <input type="email" id="email" name="email" ngModel class="form-control" required email #email="ngModel">
+                            <span *ngIf="!email.valid && email.touched" class="help-block" style="color:red;"> Please enter a valid email</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" ngModel class="form-control" required>
+                        </div>
+                        <button type="button" class="btn btn-link" (click)="resetPassword()">forgot password?</button><br/>
+                        <button class="btn btn-primary" type="submit" [disabled]="!lf.valid">Login</button>
+
+                    </form>
+
+                    <p class="or">OR</p>
+                    <hr/>
+                    <button class="btn  btn-primary" (click)="loginWithFb()"><i class="fa fa-facebook fa-4x" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger" (click)="loginWithGoogle()"> <i class="fa fa-google fa-4x" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger btn-twitter" (click)="loginWithTwitter()"><i class="fa fa-twitter fa-4x " aria-hidden="true"></i></button>
+
+                    <button class="btn  btn-danger btn-instagram" (click)="loginWithPhone()"><i class="fa fa-mobile fa-4x"></i></button>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div class="col-sm-6 loginbox">
+            <md-card class="card-srch">
+                <md-card-title>
+
+                    <!--<span class="glyphicon glyphicon-search"></span><span>{{"search-for-hotel" | translate}}</span>-->
+                    <span class="glyphicon glyphicon-search"></span><span>Signup</span>
+
+                </md-card-title>
+                <md-card-content>
+                    <form (ngSubmit)="onSignupByEmail(sf)" #sf="ngForm">
+                        <div class="form-group">
+                            <label for="email">Mail</label>
+                            <input type="email" id="email" name="email" ngModel class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" ngModel class="form-control">
+                        </div>
+                        <button class="btn btn-primary" type="submit" [disabled]="!sf.valid">Sign Up</button>
+                    </form>
+
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+
+
+</div>

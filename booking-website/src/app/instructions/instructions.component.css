@@ -1,0 +1,83 @@
+agm-map {
+    height: 300px;
+}
+
+.map {
+    margin-bottom: 10px;
+}
+
+.checkin-checkout {
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.checkin {
+    width: 40%;
+    float: left;
+}
+
+.seperator-outer {
+    width: 20%;
+    float: left;
+}
+
+.seperator {
+    width: 2px;
+    border: 1px solid #0AA713;
+    -ms-transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    transform: rotate(20deg);
+    height: 48px;
+    margin: auto;
+}
+
+.checkout {
+    width: 40%;
+    float: right;
+}
+
+.section-header {
+    height: 50px;
+    background: #0AA713;
+    color: #fff;
+    padding: 0px 22px;
+    line-height: 50px;
+}
+
+.section-footer {
+    height: 41px;
+    background: rgba(14, 118, 188, 1);
+    color: #fff;
+}
+
+.btn-quick-book {
+    background: #0AA713;
+}
+
+.btn-srch,
+.btn-detail {
+    background: #f8d30e;
+    border-color: #f8d30e;
+    color: #000;
+}
+
+.btn-detail,
+.btn-quick-book {
+    margin-top: 3px;
+}
+
+.btn-detail {
+    margin-right: 3px;
+}
+
+.container {
+    margin-top: 54px;
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1366px) {
+    .leave-margin {
+        margin-right: 169px;
+    }
+}
